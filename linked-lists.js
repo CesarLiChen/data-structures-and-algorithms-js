@@ -16,10 +16,18 @@ class LinkedList {
         this.head = newNode;
         if(!this.tail) this.tail = newNode;
     }
+
+    append(value) {
+        const newNode = new LinkedListNode(value);
+        if(this.tail) this.tail.next = newNode;
+        if(!this.head) this.head = newNode;
+        this.tail = newNode;
+    }
 }
 
 const ll = new LinkedList();
 ll.prepend(7);
+ll.append(20);
 ll.prepend(1);
 
 console.log(ll);
