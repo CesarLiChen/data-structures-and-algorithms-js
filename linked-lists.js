@@ -24,6 +24,16 @@ class LinkedList {
         this.tail = newNode;
     }
 
+    removeFirst() {
+        const nodeToRemove = this.head;
+        if(this.tail === this.head) this.tail = null;
+        if(this.head) {
+            this.head = nodeToRemove.next;
+            nodeToRemove.next = null;           
+        }
+        return nodeToRemove ? nodeToRemove.value : null;
+    }
+
     get first() {
         return this.head.value;
     }
