@@ -23,6 +23,14 @@ class LinkedList {
         if(!this.head) this.head = newNode;
         this.tail = newNode;
     }
+
+    get first() {
+        return this.head.value;
+    }
+
+    get last() {
+        return this.tail.value;
+    }
 }
 
 const ll = new LinkedList();
@@ -31,3 +39,4 @@ ll.append(20);
 ll.prepend(1);
 
 console.log(ll);
+console.log(ll.first, ll.last);
