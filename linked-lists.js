@@ -34,6 +34,27 @@ class LinkedList {
         return nodeToRemove ? nodeToRemove.value : null;
     }
 
+    remove(value) {
+        if(this.head) {
+            if(this.head.value === value) {
+                this.removeFirst();
+            } else {
+
+                let previousNode = this.head;
+                let currentNode = previousNode.next;
+                while(currentNode && currentNode.value !== value) {
+                    previousNode = currentNode;
+                    currentNode = currentNode.next;                    
+                }
+                if(currentNode) {
+                    previousNode.next = currentNode.next;
+                    currentNode.next = null;
+                    if(currentNode === this.tail) this.tail = previousNode;
+                }
+            }
+        }
+    }
+
     get first() {
         return this.head.value;
     }
@@ -47,6 +68,11 @@ const ll = new LinkedList();
 ll.prepend(7);
 ll.append(20);
 ll.prepend(1);
+ll.append(5);
+ll.append(201);
+ll.append(42);
+
+ll.remove(5);
 
 console.log(ll);
 console.log(ll.first, ll.last);
